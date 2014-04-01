@@ -33,26 +33,37 @@ public class pvparenas extends JavaPlugin implements Listener{
 	@EventHandler
 	public void onWorldChange(PlayerChangedWorldEvent event){
 		Player player = event.getPlayer();
+        if (player.hasPermission("pvparenas.remove"))
+        {
+       	 if((player.getWorld().getName().equalsIgnoreCase("games_hub")) || 
+    			 (player.getWorld().getName().equalsIgnoreCase("games")) || 
+    			 (player.getWorld().getName().equalsIgnoreCase("godpvp")))  {
+       	  player.removePotionEffect(PotionEffectType.ABSORPTION);
+    	  player.removePotionEffect(PotionEffectType.DAMAGE_RESISTANCE);
+    	  player.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
+    	  player.removePotionEffect(PotionEffectType.HARM);
+    	  player.removePotionEffect(PotionEffectType.HEAL);
+    	  player.removePotionEffect(PotionEffectType.HEALTH_BOOST);
+    	  player.removePotionEffect(PotionEffectType.HUNGER);
+    	  player.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
+    	  player.removePotionEffect(PotionEffectType.INVISIBILITY);
+    	  player.removePotionEffect(PotionEffectType.JUMP);
+    	  player.removePotionEffect(PotionEffectType.NIGHT_VISION);
+    	  player.removePotionEffect(PotionEffectType.REGENERATION);
+    	  player.removePotionEffect(PotionEffectType.SATURATION);
+    	  player.removePotionEffect(PotionEffectType.SPEED);
+    	  player.removePotionEffect(PotionEffectType.WATER_BREATHING);
+    	  player.removePotionEffect(PotionEffectType.WEAKNESS);
+    	  player.sendMessage(ChatColor.GOLD + "[" + ChatColor.RED + "PvPArenas"+ ChatColor.GOLD + "]" + ChatColor.GREEN + " All potion effects (if any) removed.");
+       	 }
+        }
+        else
+        {	
 	 if((player.getWorld().getName().equalsIgnoreCase("games_hub")) || 
 			 (player.getWorld().getName().equalsIgnoreCase("games")) || 
 			 (player.getWorld().getName().equalsIgnoreCase("godpvp")))  {
-	  player.removePotionEffect(PotionEffectType.ABSORPTION);
-	  player.removePotionEffect(PotionEffectType.DAMAGE_RESISTANCE);
-	  player.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
-	  player.removePotionEffect(PotionEffectType.HARM);
-	  player.removePotionEffect(PotionEffectType.HEAL);
-	  player.removePotionEffect(PotionEffectType.HEALTH_BOOST);
-	  player.removePotionEffect(PotionEffectType.HUNGER);
-	  player.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
-	  player.removePotionEffect(PotionEffectType.INVISIBILITY);
-	  player.removePotionEffect(PotionEffectType.JUMP);
-	  player.removePotionEffect(PotionEffectType.NIGHT_VISION);
-	  player.removePotionEffect(PotionEffectType.REGENERATION);
-	  player.removePotionEffect(PotionEffectType.SATURATION);
-	  player.removePotionEffect(PotionEffectType.SPEED);
-	  player.removePotionEffect(PotionEffectType.WATER_BREATHING);
-	  player.removePotionEffect(PotionEffectType.WEAKNESS);
-	  player.sendMessage(ChatColor.GOLD + "[" + ChatColor.RED + "PvPArenas"+ ChatColor.GOLD + "]" + ChatColor.GREEN + " All potion effects (if any) removed.");
-	}
-}
+   	  player.sendMessage(ChatColor.GOLD + "[" + ChatColor.RED + "PvPArenas"+ ChatColor.GOLD + "]" + ChatColor.GREEN + " Exempt from potion effects removal.");
+	 }
+        }
+	 }
 }
