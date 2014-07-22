@@ -1,7 +1,5 @@
 package me.externo6.pvparenas;
 
-import java.util.Arrays;
-
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
