@@ -52,7 +52,7 @@ public class GodKits implements Listener{
 				sword.setItemMeta(swordmeta);
 				String[] helmetlore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack helmet = new ItemStack(Material.DIAMOND_HELMET, 1);
-				ItemMeta helmetmeta = sword.getItemMeta();
+				ItemMeta helmetmeta = helmet.getItemMeta();
 				helmetmeta.addEnchant(Enchantment.DURABILITY, 3, true);
 				helmetmeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 5, true);
 				helmetmeta.addEnchant(Enchantment.PROTECTION_EXPLOSIONS, 5, true);
@@ -65,7 +65,7 @@ public class GodKits implements Listener{
 				helmet.setItemMeta(helmetmeta);
 				String[] chestplatelore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE, 1);
-				ItemMeta chestplatemeta = sword.getItemMeta();
+				ItemMeta chestplatemeta = chestplate.getItemMeta();
 				chestplatemeta.addEnchant(Enchantment.DURABILITY, 3, true);
 				chestplatemeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 5, true);
 				chestplatemeta.addEnchant(Enchantment.PROTECTION_EXPLOSIONS, 5, true);
@@ -76,7 +76,7 @@ public class GodKits implements Listener{
 				chestplate.setItemMeta(chestplatemeta);
 				String[] legginslore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack leggings = new ItemStack(Material.DIAMOND_CHESTPLATE, 1);
-				ItemMeta leggingsmeta = sword.getItemMeta();
+				ItemMeta leggingsmeta = leggings.getItemMeta();
 				leggingsmeta.addEnchant(Enchantment.DURABILITY, 3, true);
 				leggingsmeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 5, true);
 				leggingsmeta.addEnchant(Enchantment.PROTECTION_EXPLOSIONS, 5, true);
@@ -87,7 +87,7 @@ public class GodKits implements Listener{
 				leggings.setItemMeta(leggingsmeta);
 				String[] bootslore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS, 1);
-				ItemMeta bootsmeta = sword.getItemMeta();
+				ItemMeta bootsmeta = boots.getItemMeta();
 				bootsmeta.addEnchant(Enchantment.DURABILITY, 3, true);
 				bootsmeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 5, true);
 				bootsmeta.addEnchant(Enchantment.PROTECTION_EXPLOSIONS, 5, true);
@@ -99,14 +99,14 @@ public class GodKits implements Listener{
 				boots.setItemMeta(bootsmeta);
 				String[] axelore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack axe = new ItemStack(Material.DIAMOND_AXE, 1);
-				ItemMeta axemeta = sword.getItemMeta();
+				ItemMeta axemeta = axe.getItemMeta();
 				axemeta.addEnchant(Enchantment.DURABILITY, 3, true);
 				axemeta.addEnchant(Enchantment.DAMAGE_ALL, 4, true);
 				axemeta.setLore(Arrays.asList(axelore));
 				axemeta.setDisplayName(ChatColor.DARK_RED + "PVP" + ChatColor.GOLD + "GOD");
 				axe.setItemMeta(axemeta);
-				if ((sign.getLine(0).equals(ChatColor.DARK_BLUE + "PvPArenas")) && (sign.getLine(1).equals("Kit")))
-					if ((player.hasPermission("pvparenas.signuse")) && (player.getWorld().getName().equalsIgnoreCase("dun1"))) 
+				if ((sign.getLine(0).equals(ChatColor.DARK_BLUE + "PvPArenas")) && (sign.getLine(1).equals("God Kit")))
+					if ((player.hasPermission("pvparenas.signuse")) && (player.getWorld().getName().equalsIgnoreCase("godpvp"))) 
 					{
 						player.getInventory().clear();
 						player.getInventory().setHelmet(helmet);
