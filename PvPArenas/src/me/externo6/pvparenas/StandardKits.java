@@ -39,30 +39,35 @@ public class StandardKits implements Listener{
 			{
 				Sign sign = (Sign)block.getState();
 				Player player = event.getPlayer();
-				String[] swordlore = {ChatColor.GOLD + "PVP"};
+				String[] swordlore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack sword = new ItemStack(Material.STONE_SWORD, 1);
 				ItemMeta swordmeta = sword.getItemMeta();
 				swordmeta.setLore(Arrays.asList(swordlore));
+				swordmeta.setDisplayName(ChatColor.GOLD + "PVP");
 				sword.setItemMeta(swordmeta);
-				String[] helmetlore = {ChatColor.GOLD + "PVP"};
+				String[] helmetlore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack helmet = new ItemStack(Material.LEATHER_HELMET, 1);
 				ItemMeta helmetmeta = sword.getItemMeta();
 				helmetmeta.setLore(Arrays.asList(helmetlore));
+				helmetmeta.setDisplayName(ChatColor.GOLD + "PVP");
 				helmet.setItemMeta(helmetmeta);
-				String[] chestplatelore = {ChatColor.GOLD + "PVP"};
+				String[] chestplatelore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE, 1);
 				ItemMeta chestplatemeta = sword.getItemMeta();
 				chestplatemeta.setLore(Arrays.asList(chestplatelore));
+				chestplatemeta.setDisplayName(ChatColor.GOLD + "PVP");
 				chestplate.setItemMeta(chestplatemeta);
-				String[] legginslore = {ChatColor.GOLD + "PVP"};
+				String[] legginslore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack leggings = new ItemStack(Material.LEATHER_CHESTPLATE, 1);
 				ItemMeta leggingsmeta = sword.getItemMeta();
 				leggingsmeta.setLore(Arrays.asList(legginslore));
+				leggingsmeta.setDisplayName(ChatColor.GOLD + "PVP");
 				leggings.setItemMeta(leggingsmeta);
-				String[] bootslore = {ChatColor.GOLD + "PVP"};
+				String[] bootslore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack boots = new ItemStack(Material.LEATHER_BOOTS, 1);
 				ItemMeta bootsmeta = sword.getItemMeta();
 				bootsmeta.setLore(Arrays.asList(bootslore));
+				bootsmeta.setDisplayName(ChatColor.GOLD + "PVP");
 				boots.setItemMeta(bootsmeta);
 				if ((sign.getLine(0).equals(ChatColor.DARK_BLUE + "PvPArenas")) && (sign.getLine(1).equals("Kit")))
 					if ((player.hasPermission("pvparenas.signuse")) && (player.getWorld().getName().equalsIgnoreCase("dun1"))) 
