@@ -78,6 +78,7 @@ public class StandardKits implements Listener{
 						player.getInventory().setLeggings(leggings);
 						player.getInventory().setBoots(boots);
 						player.getInventory().setItemInHand(sword);
+						player.sendMessage(ChatColor.GOLD + "[" + ChatColor.RED + "PvPArenas"+ ChatColor.GOLD + "]" + ChatColor.GREEN + " Kit" + ChatColor.GOLD + "PVP" + ChatColor.GREEN + "Given and has been equipt!");
 					}
 			}
 		}

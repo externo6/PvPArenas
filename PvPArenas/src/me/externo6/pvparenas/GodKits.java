@@ -115,6 +115,7 @@ public class GodKits implements Listener{
 						player.getInventory().setBoots(boots);
 						player.getInventory().setItemInHand(sword);
 						player.getInventory().addItem(axe);
+						player.sendMessage(ChatColor.GOLD + "[" + ChatColor.RED + "PvPArenas"+ ChatColor.GOLD + "]" + ChatColor.GREEN + "Kit " + ChatColor.DARK_RED + "PVP" + ChatColor.GOLD + "GOD" + ChatColor.GREEN + "Given and has been equipt!");
 					}
 			}
 		}
