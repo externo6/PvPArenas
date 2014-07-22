@@ -41,6 +41,14 @@ public class StandardKits implements Listener{
 				ItemMeta swordmeta = sword.getItemMeta();
 				swordmeta.setDisplayName(ChatColor.GOLD + "PVP");
 				sword.setItemMeta(swordmeta);
+				ItemStack bow = new ItemStack(Material.BOW, 1);
+				ItemMeta bowmeta = sword.getItemMeta();
+				bowmeta.setDisplayName(ChatColor.GOLD + "PVP");
+				bow.setItemMeta(bowmeta);
+				ItemStack arrows = new ItemStack(Material.ARROW, 64);
+				ItemMeta arrowsmeta = sword.getItemMeta();
+				arrowsmeta.setDisplayName(ChatColor.GOLD + "PVP");
+				arrows.setItemMeta(arrowsmeta);
 				ItemStack helmet = new ItemStack(Material.LEATHER_HELMET, 1);
 				ItemMeta helmetmeta = helmet.getItemMeta();
 				helmetmeta.setDisplayName(ChatColor.GOLD + "PVP");
@@ -49,7 +57,7 @@ public class StandardKits implements Listener{
 				ItemMeta chestplatemeta = chestplate.getItemMeta();
 				chestplatemeta.setDisplayName(ChatColor.GOLD + "PVP");
 				chestplate.setItemMeta(chestplatemeta);
-				ItemStack leggings = new ItemStack(Material.LEATHER_CHESTPLATE, 1);
+				ItemStack leggings = new ItemStack(Material.LEATHER_LEGGINGS, 1);
 				ItemMeta leggingsmeta = leggings.getItemMeta();
 				leggingsmeta.setDisplayName(ChatColor.GOLD + "PVP");
 				leggings.setItemMeta(leggingsmeta);
@@ -66,6 +74,8 @@ public class StandardKits implements Listener{
 						player.getInventory().setLeggings(leggings);
 						player.getInventory().setBoots(boots);
 						player.getInventory().setItemInHand(sword);
+						player.getInventory().addItem(bow);
+						player.getInventory().addItem(arrows);
 						player.sendMessage(ChatColor.GOLD + "[" + ChatColor.RED + "PvPArenas"+ ChatColor.GOLD + "]" + ChatColor.GREEN + " Kit " + ChatColor.GOLD + "PVP " + ChatColor.GREEN + "Given and has been equipt!");
 					}
 			}
