@@ -36,7 +36,7 @@ public class GodKits implements Listener{
 		if (event.getAction() == Action.RIGHT_CLICK_BLOCK)
 		{
 			Block block = event.getClickedBlock();
-			if (block.getType() == Material.WALL_SIGN)
+			if ((block.getType() == Material.WALL_SIGN) || (block.getType() == Material.SIGN_POST))
 			{
 				Sign sign = (Sign)block.getState();
 				Player player = event.getPlayer();
