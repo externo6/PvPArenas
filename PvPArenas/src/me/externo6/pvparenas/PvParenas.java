@@ -1,6 +1,8 @@
 package me.externo6.pvparenas;
 
 import java.util.logging.Logger;
+
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,9 +13,9 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffectType;
 
-public class pvparenas extends JavaPlugin implements Listener{
+public class PvParenas extends JavaPlugin implements Listener{
 	public final Logger logger = Logger.getLogger("minecraft");
-	public static pvparenas plugin;
+	public static PvParenas plugin;
 	
 	@Override
 	public void onDisable(){
@@ -25,9 +27,16 @@ public class pvparenas extends JavaPlugin implements Listener{
 	public void onEnable(){
 		PluginDescriptionFile pdfFile = this.getDescription();
 		this.logger.info("[PvPArenas]" + " Version " + pdfFile.getVersion() + " |" + " Developed for Banxsi.com by externo6");
+		registerEvents(this, new StandardKits(), new GodKits());
 		@SuppressWarnings("unused")
 		PluginManager pm = getServer().getPluginManager();
 		getServer().getPluginManager().registerEvents(this, this);		
+	}
+	
+	public static void registerEvents(org.bukkit.plugin.Plugin plugin, Listener... listeners) {
+	    for (Listener listener : listeners) {
+	        Bukkit.getServer().getPluginManager().registerEvents(listener, plugin);
+	    }
 	}
 	
 	@EventHandler
