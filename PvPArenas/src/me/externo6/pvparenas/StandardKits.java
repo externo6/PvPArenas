@@ -35,38 +35,28 @@ public class StandardKits implements Listener{
 		if (event.getAction() == Action.RIGHT_CLICK_BLOCK)
 		{
 			Block block = event.getClickedBlock();
-			if (block.getType() == Material.WALL_SIGN)
+			if ((block.getType() == Material.WALL_SIGN) || (block.getType() == Material.SIGN_POST))
 			{
 				Sign sign = (Sign)block.getState();
 				Player player = event.getPlayer();
-				String[] swordlore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack sword = new ItemStack(Material.STONE_SWORD, 1);
 				ItemMeta swordmeta = sword.getItemMeta();
-				swordmeta.setLore(Arrays.asList(swordlore));
 				swordmeta.setDisplayName(ChatColor.GOLD + "PVP");
 				sword.setItemMeta(swordmeta);
-				String[] helmetlore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack helmet = new ItemStack(Material.LEATHER_HELMET, 1);
 				ItemMeta helmetmeta = helmet.getItemMeta();
-				helmetmeta.setLore(Arrays.asList(helmetlore));
 				helmetmeta.setDisplayName(ChatColor.GOLD + "PVP");
 				helmet.setItemMeta(helmetmeta);
-				String[] chestplatelore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE, 1);
 				ItemMeta chestplatemeta = chestplate.getItemMeta();
-				chestplatemeta.setLore(Arrays.asList(chestplatelore));
 				chestplatemeta.setDisplayName(ChatColor.GOLD + "PVP");
 				chestplate.setItemMeta(chestplatemeta);
-				String[] legginslore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack leggings = new ItemStack(Material.LEATHER_CHESTPLATE, 1);
 				ItemMeta leggingsmeta = leggings.getItemMeta();
-				leggingsmeta.setLore(Arrays.asList(legginslore));
 				leggingsmeta.setDisplayName(ChatColor.GOLD + "PVP");
 				leggings.setItemMeta(leggingsmeta);
-				String[] bootslore = {ChatColor.WHITE + "PVP ARENA ONLY"};
 				ItemStack boots = new ItemStack(Material.LEATHER_BOOTS, 1);
 				ItemMeta bootsmeta = boots.getItemMeta();
-				bootsmeta.setLore(Arrays.asList(bootslore));
 				bootsmeta.setDisplayName(ChatColor.GOLD + "PVP");
 				boots.setItemMeta(bootsmeta);
 				if ((sign.getLine(0).equals(ChatColor.DARK_BLUE + "PvPArenas")) && (sign.getLine(1).equals("Kit")))
@@ -78,7 +68,7 @@ public class StandardKits implements Listener{
 						player.getInventory().setLeggings(leggings);
 						player.getInventory().setBoots(boots);
 						player.getInventory().setItemInHand(sword);
-						player.sendMessage(ChatColor.GOLD + "[" + ChatColor.RED + "PvPArenas"+ ChatColor.GOLD + "]" + ChatColor.GREEN + " Kit" + ChatColor.GOLD + "PVP" + ChatColor.GREEN + "Given and has been equipt!");
+						player.sendMessage(ChatColor.GOLD + "[" + ChatColor.RED + "PvPArenas"+ ChatColor.GOLD + "]" + ChatColor.GREEN + " Kit " + ChatColor.GOLD + "PVP " + ChatColor.GREEN + "Given and has been equipt!");
 					}
 			}
 		}
