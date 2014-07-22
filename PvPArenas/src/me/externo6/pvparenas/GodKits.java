@@ -106,7 +106,7 @@ public class GodKits implements Listener{
 				axemeta.setDisplayName(ChatColor.DARK_RED + "PVP" + ChatColor.GOLD + "GOD");
 				axe.setItemMeta(axemeta);
 				if ((sign.getLine(0).equals(ChatColor.DARK_BLUE + "PvPArenas")) && (sign.getLine(1).equals("God Kit")))
-					if ((player.hasPermission("pvparenas.signuse")) && (player.getWorld().getName().equalsIgnoreCase("godpvp"))) 
+					if (player.getWorld().getName().equalsIgnoreCase("godpvp"))
 					{
 						player.getInventory().clear();
 						player.getInventory().setHelmet(helmet);

@@ -58,7 +58,7 @@ public class StandardKits implements Listener{
 				bootsmeta.setDisplayName(ChatColor.GOLD + "PVP");
 				boots.setItemMeta(bootsmeta);
 				if ((sign.getLine(0).equals(ChatColor.DARK_BLUE + "PvPArenas")) && (sign.getLine(1).equals("Kit")))
-					if ((player.hasPermission("pvparenas.signuse")) && (player.getWorld().getName().equalsIgnoreCase("games"))) 
+					if (player.getWorld().getName().equalsIgnoreCase("games"))
 					{
 						player.getInventory().clear();
 						player.getInventory().setHelmet(helmet);
