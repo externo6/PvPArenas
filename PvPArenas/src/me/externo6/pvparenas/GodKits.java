@@ -44,7 +44,7 @@ public class GodKits implements Listener{
 				ItemStack sword = new ItemStack(Material.DIAMOND_SWORD, 1);
 				ItemMeta swordmeta = sword.getItemMeta();
 				swordmeta.addEnchant(Enchantment.DURABILITY, 3, true);
-				swordmeta.addEnchant(Enchantment.DAMAGE_ALL, 4, true);
+				swordmeta.addEnchant(Enchantment.DAMAGE_ALL, 5, true);
 				swordmeta.addEnchant(Enchantment.KNOCKBACK, 1, true);
 				swordmeta.addEnchant(Enchantment.FIRE_ASPECT, 2, true);
 				swordmeta.setLore(Arrays.asList(swordlore));
@@ -101,7 +101,7 @@ public class GodKits implements Listener{
 				ItemStack axe = new ItemStack(Material.DIAMOND_AXE, 1);
 				ItemMeta axemeta = axe.getItemMeta();
 				axemeta.addEnchant(Enchantment.DURABILITY, 3, true);
-				axemeta.addEnchant(Enchantment.DAMAGE_ALL, 4, true);
+				axemeta.addEnchant(Enchantment.DAMAGE_ALL, 5, true);
 				axemeta.addEnchant(Enchantment.FIRE_ASPECT, 2, true);
 				axemeta.setLore(Arrays.asList(axelore));
 				axemeta.setDisplayName(ChatColor.DARK_RED + "PVP" + ChatColor.GOLD + "GOD");
