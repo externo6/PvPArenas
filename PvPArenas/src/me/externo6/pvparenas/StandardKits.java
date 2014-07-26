@@ -46,7 +46,7 @@ public class StandardKits implements Listener{
 				bowmeta.setDisplayName(ChatColor.GOLD + "PVP");
 				bow.setItemMeta(bowmeta);
 				ItemStack arrows = new ItemStack(Material.ARROW, 64);
-				ItemMeta arrowsmeta = sword.getItemMeta();
+				ItemMeta arrowsmeta = arrows.getItemMeta();
 				arrowsmeta.setDisplayName(ChatColor.GOLD + "PVP");
 				arrows.setItemMeta(arrowsmeta);
 				ItemStack helmet = new ItemStack(Material.LEATHER_HELMET, 1);
