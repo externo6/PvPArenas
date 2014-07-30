@@ -7,6 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
@@ -37,6 +38,15 @@ public class PvParenas extends JavaPlugin implements Listener{
 	    for (Listener listener : listeners) {
 	        Bukkit.getServer().getPluginManager().registerEvents(listener, plugin);
 	    }
+	}
+	//for a few days
+	@EventHandler
+	public void onPlayerDeath(PlayerDeathEvent event){
+		Player player = event.getEntity();
+		if ((player.getWorld().getName().equalsIgnoreCase("games")) || 
+		 (player.getWorld().getName().equalsIgnoreCase("godpvp"))){
+				event.setDeathMessage(null); 
+		 }
 	}
 	
 	@EventHandler

@@ -31,7 +31,100 @@ public class GodKits implements Listener{
 		}
 }
 	@EventHandler
-	public void onPlayerInteractStandardKit(PlayerInteractEvent event)
+	public void onPlayerInteractOneHitKit(PlayerInteractEvent event)
+	{
+		if (event.getAction() == Action.RIGHT_CLICK_BLOCK)
+		{
+			Block block = event.getClickedBlock();
+			if ((block.getType() == Material.WALL_SIGN) || (block.getType() == Material.SIGN_POST))
+			{
+				{
+					Sign sign = (Sign)block.getState();
+					Player player = event.getPlayer();
+					String[] swordlore = {ChatColor.WHITE + "PVP ARENA ONLY"};
+					ItemStack sword = new ItemStack(Material.IRON_SWORD, 1);
+					ItemMeta swordmeta = sword.getItemMeta();
+					swordmeta.addEnchant(Enchantment.DAMAGE_ALL, 9999, true);
+					swordmeta.setLore(Arrays.asList(swordlore));
+					swordmeta.setDisplayName(ChatColor.DARK_RED + "INSTA-KILL");
+					sword.setItemMeta(swordmeta);
+					String[] helmetlore = {ChatColor.WHITE + "PVP ARENA ONLY"};
+					ItemStack helmet = new ItemStack(Material.DIAMOND_HELMET, 1);
+					ItemMeta helmetmeta = helmet.getItemMeta();
+					helmetmeta.addEnchant(Enchantment.DURABILITY, 3, true);
+					helmetmeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 5, true);
+					helmetmeta.addEnchant(Enchantment.PROTECTION_EXPLOSIONS, 5, true);
+					helmetmeta.addEnchant(Enchantment.PROTECTION_FIRE, 5, true);
+					helmetmeta.addEnchant(Enchantment.PROTECTION_PROJECTILE, 5, true);
+					helmetmeta.addEnchant(Enchantment.OXYGEN, 1, true);
+					helmetmeta.addEnchant(Enchantment.WATER_WORKER, 1, true);
+					helmetmeta.setLore(Arrays.asList(helmetlore));
+					helmetmeta.setDisplayName(ChatColor.DARK_RED + "INSTA-KILL");
+					helmet.setItemMeta(helmetmeta);
+					String[] chestplatelore = {ChatColor.WHITE + "PVP ARENA ONLY"};
+					ItemStack chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE, 1);
+					ItemMeta chestplatemeta = chestplate.getItemMeta();
+					chestplatemeta.addEnchant(Enchantment.DURABILITY, 3, true);
+					chestplatemeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
+					chestplatemeta.addEnchant(Enchantment.PROTECTION_EXPLOSIONS, 4, true);
+					chestplatemeta.addEnchant(Enchantment.PROTECTION_FIRE, 4, true);
+					chestplatemeta.addEnchant(Enchantment.PROTECTION_PROJECTILE, 4, true);
+					chestplatemeta.setLore(Arrays.asList(chestplatelore));
+					chestplatemeta.setDisplayName(ChatColor.DARK_RED + "INSTA-KILL");
+					chestplate.setItemMeta(chestplatemeta);
+					String[] legginslore = {ChatColor.WHITE + "PVP ARENA ONLY"};
+					ItemStack leggings = new ItemStack(Material.DIAMOND_LEGGINGS, 1);
+					ItemMeta leggingsmeta = leggings.getItemMeta();
+					leggingsmeta.addEnchant(Enchantment.DURABILITY, 3, true);
+					leggingsmeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
+					leggingsmeta.addEnchant(Enchantment.PROTECTION_EXPLOSIONS, 4, true);
+					leggingsmeta.addEnchant(Enchantment.PROTECTION_FIRE, 4, true);
+					leggingsmeta.addEnchant(Enchantment.PROTECTION_PROJECTILE, 4, true);
+					leggingsmeta.setLore(Arrays.asList(legginslore));
+					leggingsmeta.setDisplayName(ChatColor.DARK_RED + "INSTA-KILL");
+					leggings.setItemMeta(leggingsmeta);
+					String[] bootslore = {ChatColor.WHITE + "PVP ARENA ONLY"};
+					ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS, 1);
+					ItemMeta bootsmeta = boots.getItemMeta();
+					bootsmeta.addEnchant(Enchantment.DURABILITY, 3, true);
+					bootsmeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
+					bootsmeta.addEnchant(Enchantment.PROTECTION_EXPLOSIONS, 4, true);
+					bootsmeta.addEnchant(Enchantment.PROTECTION_FIRE, 4, true);
+					bootsmeta.addEnchant(Enchantment.PROTECTION_PROJECTILE, 4, true);
+					bootsmeta.addEnchant(Enchantment.PROTECTION_FALL, 4, true);
+					bootsmeta.setLore(Arrays.asList(bootslore));
+					bootsmeta.setDisplayName(ChatColor.DARK_RED + "INSTA-KILL");
+					boots.setItemMeta(bootsmeta);
+					String[] bowlore = {ChatColor.WHITE + "PVP ARENA ONLY"};
+					ItemStack bow = new ItemStack(Material.BOW, 1);
+					ItemMeta bowmeta = bow.getItemMeta();
+					bowmeta.addEnchant(Enchantment.ARROW_DAMAGE, 9999, true);
+					bowmeta.setLore(Arrays.asList(bowlore));
+					bowmeta.setDisplayName(ChatColor.DARK_RED + "INSTA-KILL");
+					bow.setItemMeta(bowmeta);
+					ItemStack arrows = new ItemStack(Material.ARROW, 1);
+					ItemMeta arrowsmeta = arrows.getItemMeta();
+					arrowsmeta.setDisplayName(ChatColor.DARK_RED + "INSTA-KILL");
+					arrows.setItemMeta(arrowsmeta);
+					if ((sign.getLine(0).equals(ChatColor.DARK_BLUE + "PvPArenas")) && (sign.getLine(1).equals("OneHit")))
+						if (player.getWorld().getName().equalsIgnoreCase("godpvp"))
+						{
+							player.getInventory().clear();
+							player.getInventory().setHelmet(helmet);
+							player.getInventory().setChestplate(chestplate);
+							player.getInventory().setLeggings(leggings);
+							player.getInventory().setBoots(boots);
+							player.getInventory().setItemInHand(sword);
+							player.getInventory().addItem(bow);
+							player.getInventory().addItem(arrows);
+							player.sendMessage(ChatColor.GOLD + "[" + ChatColor.RED + "PvPArenas"+ ChatColor.GOLD + "]" + ChatColor.GREEN + " Kit " + ChatColor.DARK_RED + "INSTA-KILL" + ChatColor.GREEN + "Given and has been equipt!");
+						}
+				}
+			}
+		}
+	}
+	@EventHandler
+	public void onPlayerInteractGodKit(PlayerInteractEvent event)
 	{
 		if (event.getAction() == Action.RIGHT_CLICK_BLOCK)
 		{
