@@ -4,11 +4,15 @@ import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -39,16 +43,18 @@ public class PvParenas extends JavaPlugin implements Listener{
 	        Bukkit.getServer().getPluginManager().registerEvents(listener, plugin);
 	    }
 	}
-	//for a few days
-	@EventHandler
-	public void onPlayerDeath(PlayerDeathEvent event){
-		Player player = event.getEntity();
-		if ((player.getWorld().getName().equalsIgnoreCase("games")) || 
-		 (player.getWorld().getName().equalsIgnoreCase("godpvp"))){
-				event.setDeathMessage(null); 
-		 }
-	}
 	
+//	private WorldGuardPlugin getWorldGuard() {
+//    	Plugin plugin = getServer().getPluginManager().getPlugin("WorldGuard");	 
+//	       WorldGuard may not be loaded
+//	        if (plugin == null || !(plugin instanceof WorldGuardPlugin)) {
+//	         return null; // Maybe you want throw an exception instead
+//	    }
+	 
+//	    return (WorldGuardPlugin) plugin;
+//	}
+	
+	//for a few days
 	@EventHandler
 	public void onWorldChange(PlayerChangedWorldEvent event){
 		Player player = event.getPlayer();

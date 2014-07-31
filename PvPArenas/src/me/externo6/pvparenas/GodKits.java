@@ -12,6 +12,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.SignChangeEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -30,6 +32,43 @@ public class GodKits implements Listener{
 			}
 		}
 }
+	@EventHandler
+	public void onPlayerDeathMessage(PlayerDeathEvent event){
+		Player player = event.getEntity();
+		ItemStack arrows = new ItemStack(Material.ARROW, 1);
+		ItemMeta arrowsmeta = arrows.getItemMeta();
+		arrowsmeta.setDisplayName(ChatColor.DARK_RED + "INSTA-KILL");
+		arrows.setItemMeta(arrowsmeta);
+	//	ItemStack sword = new ItemStack(Material.IRON_SWORD, 1);
+	//	ItemStack head = new ItemStack(Material.DIAMOND_HELMET, 1);
+	//	ItemStack chest = new ItemStack(Material.DIAMOND_CHESTPLATE, 1);
+	//	ItemStack legs = new ItemStack(Material.DIAMOND_LEGGINGS, 1);
+	//	ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS, 1);
+	//	ItemStack bow = new ItemStack(Material.BOW, 1);
+		if (player.getWorld().getName().equalsIgnoreCase("godpvp")){
+				event.setDeathMessage(null); 
+	//			event.getDrops().remove(sword);
+	//			event.getDrops().remove(head);
+	//			event.getDrops().remove(chest);
+	//			event.getDrops().remove(legs);
+	//			event.getDrops().remove(boots);
+	//			event.getDrops().remove(bow);
+				if (event.getDrops().contains(arrows)){
+					event.getDrops().clear();
+					event.getDrops().add(arrows);
+				}
+				else{
+					event.getDrops().clear();
+				}
+				}
+	}
+	@EventHandler
+	public void onWorldChange(PlayerChangedWorldEvent event){
+		Player player = event.getPlayer();
+		if(player.getWorld().getName().equalsIgnoreCase("godpvp")){
+			player.getInventory().clear();
+		}
+	}	
 	@EventHandler
 	public void onPlayerInteractOneHitKit(PlayerInteractEvent event)
 	{
