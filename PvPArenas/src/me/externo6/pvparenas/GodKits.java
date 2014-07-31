@@ -39,20 +39,8 @@ public class GodKits implements Listener{
 		ItemMeta arrowsmeta = arrows.getItemMeta();
 		arrowsmeta.setDisplayName(ChatColor.DARK_RED + "INSTA-KILL");
 		arrows.setItemMeta(arrowsmeta);
-	//	ItemStack sword = new ItemStack(Material.IRON_SWORD, 1);
-	//	ItemStack head = new ItemStack(Material.DIAMOND_HELMET, 1);
-	//	ItemStack chest = new ItemStack(Material.DIAMOND_CHESTPLATE, 1);
-	//	ItemStack legs = new ItemStack(Material.DIAMOND_LEGGINGS, 1);
-	//	ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS, 1);
-	//	ItemStack bow = new ItemStack(Material.BOW, 1);
 		if (player.getWorld().getName().equalsIgnoreCase("godpvp")){
 				event.setDeathMessage(null); 
-	//			event.getDrops().remove(sword);
-	//			event.getDrops().remove(head);
-	//			event.getDrops().remove(chest);
-	//			event.getDrops().remove(legs);
-	//			event.getDrops().remove(boots);
-	//			event.getDrops().remove(bow);
 				if (event.getDrops().contains(arrows)){
 					event.getDrops().clear();
 					event.getDrops().add(arrows);
