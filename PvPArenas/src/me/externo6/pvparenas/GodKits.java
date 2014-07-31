@@ -67,8 +67,8 @@ public class GodKits implements Listener{
 		Player player = event.getPlayer();
 		if(player.getWorld().getName().equalsIgnoreCase("godpvp")){
 		player.getInventory().clear();
-		player.getInventory().setArmorContents(null); //double protection as .clear didnt seem to want to work
-		player.getInventory().setContents(null); //double protection as .clear didnt seem to want to work
+	//	player.getInventory().setArmorContents(null); //double protection as .clear didnt seem to want to work
+		//player.getInventory().setContents(null); //double protection as .clear didnt seem to want to work
 		}
 	}	
 	@EventHandler
