@@ -4,17 +4,11 @@ import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.PluginDescriptionFile;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffectType;
 
@@ -33,9 +27,8 @@ public class PvParenas extends JavaPlugin implements Listener{
 		PluginDescriptionFile pdfFile = this.getDescription();
 		this.logger.info("[PvPArenas]" + " Version " + pdfFile.getVersion() + " |" + " Developed for Banxsi.com by externo6");
 		registerEvents(this, new StandardKits(), new GodKits());
-		@SuppressWarnings("unused")
-		PluginManager pm = getServer().getPluginManager();
-		getServer().getPluginManager().registerEvents(this, this);		
+		getServer().getPluginManager().registerEvents(this, this);	
+		this.saveDefaultConfig();
 	}
 	
 	public static void registerEvents(org.bukkit.plugin.Plugin plugin, Listener... listeners) {
@@ -43,16 +36,6 @@ public class PvParenas extends JavaPlugin implements Listener{
 	        Bukkit.getServer().getPluginManager().registerEvents(listener, plugin);
 	    }
 	}
-	
-//	private WorldGuardPlugin getWorldGuard() {
-//    	Plugin plugin = getServer().getPluginManager().getPlugin("WorldGuard");	 
-//	       WorldGuard may not be loaded
-//	        if (plugin == null || !(plugin instanceof WorldGuardPlugin)) {
-//	         return null; // Maybe you want throw an exception instead
-//	    }
-	 
-//	    return (WorldGuardPlugin) plugin;
-//	}
 	
 	//for a few days
 	@EventHandler
@@ -79,7 +62,7 @@ public class PvParenas extends JavaPlugin implements Listener{
     	  player.removePotionEffect(PotionEffectType.SPEED);
     	  player.removePotionEffect(PotionEffectType.WATER_BREATHING);
     	  player.removePotionEffect(PotionEffectType.WEAKNESS);
-    	  player.sendMessage(ChatColor.GOLD + "[" + ChatColor.RED + "PvPArenas"+ ChatColor.GOLD + "]" + ChatColor.GREEN + " All potion effects (if any) removed.");
+    //	  player.sendMessage(ChatColor.GOLD + "[" + ChatColor.RED + "PvPArenas"+ ChatColor.GOLD + "]" + ChatColor.GREEN + " All potion effects (if any) removed.");
        	 }
         }
         else

@@ -2,6 +2,7 @@ package me.externo6.pvparenas;
 
 import java.util.Arrays;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -17,6 +18,9 @@ import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+import org.bukkit.potion.PotionType;
 
 public class GodKits implements Listener{
 	
@@ -35,15 +39,20 @@ public class GodKits implements Listener{
 	@EventHandler
 	public void onPlayerDeathMessage(PlayerDeathEvent event){
 		Player player = event.getEntity();
-		ItemStack arrows = new ItemStack(Material.ARROW, 1);
-		ItemMeta arrowsmeta = arrows.getItemMeta();
-		arrowsmeta.setDisplayName(ChatColor.DARK_RED + "INSTA-KILL");
-		arrows.setItemMeta(arrowsmeta);
+		Player killer = event.getEntity().getKiller();
+	//	ItemStack arrows = new ItemStack(Material.ARROW, 1);
+		ItemStack droppedarrow = new ItemStack(Material.ARROW, 1);
+		ItemMeta droppedarrowsmeta = droppedarrow.getItemMeta();
+		droppedarrowsmeta.setDisplayName(ChatColor.RED + player.getName() + "'s arrow");
+		droppedarrow.setItemMeta(droppedarrowsmeta);
 		if (player.getWorld().getName().equalsIgnoreCase("godpvp")){
-				event.setDeathMessage(null); 
-				if (event.getDrops().contains(arrows)){
+			event.setDeathMessage(null); 
+			killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 60, 1));
+			player.sendMessage(ChatColor.WHITE + "You were killed by " + killer.getDisplayName());
+			killer.sendMessage(ChatColor.WHITE + "You have killed " + player.getDisplayName());
+				if (player.getInventory().contains(Material.ARROW)){
 					event.getDrops().clear();
-					event.getDrops().add(arrows);
+					event.getDrops().add(droppedarrow);
 				}
 				else{
 					event.getDrops().clear();
