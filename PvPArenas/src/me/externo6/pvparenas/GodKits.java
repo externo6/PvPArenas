@@ -2,6 +2,8 @@ package me.externo6.pvparenas;
 
 import java.util.Arrays;
 
+import net.minecraft.server.v1_7_R4.EntityPlayer;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -13,6 +15,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.SignChangeEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -44,8 +47,10 @@ public class GodKits implements Listener{
 		ItemStack droppedarrow = new ItemStack(Material.ARROW, 1);
 		ItemMeta droppedarrowsmeta = droppedarrow.getItemMeta();
 		droppedarrowsmeta.setDisplayName(ChatColor.RED + player.getName() + "'s arrow");
-		droppedarrow.setItemMeta(droppedarrowsmeta);
-		if (player.getWorld().getName().equalsIgnoreCase("godpvp")){
+		droppedarrow.setItemMeta(droppedarrowsmeta); 
+		if ((player.getWorld().getName().equalsIgnoreCase("godpvp")) 
+				&& (event.getEntity() instanceof Player) 
+				&& (!(player.getKiller() ==null))){
 			event.setDeathMessage(null); 
 			killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 60, 1));
 			player.sendMessage(ChatColor.WHITE + "You were killed by " + killer.getDisplayName());
@@ -57,7 +62,7 @@ public class GodKits implements Listener{
 				else{
 					event.getDrops().clear();
 				}
-				}
+		}
 	}
 	@EventHandler
 	public void onWorldChange(PlayerChangedWorldEvent event){
