@@ -28,7 +28,6 @@ public class PvParenas extends JavaPlugin implements Listener{
 		this.logger.info("[PvPArenas]" + " Version " + pdfFile.getVersion() + " |" + " Developed for Banxsi.com by externo6");
 		registerEvents(this, new StandardKits(), new GodKits());
 		getServer().getPluginManager().registerEvents(this, this);	
-		this.saveDefaultConfig();
 	}
 	
 	public static void registerEvents(org.bukkit.plugin.Plugin plugin, Listener... listeners) {

@@ -7,14 +7,10 @@
     <finalName>PvPArenas</finalName>
     <sourceDirectory>src/main/java</sourceDirectory>
     <resources>
-      <resource>
-        <targetPath>.</targetPath>
-        <filtering>true</filtering>
-        <directory>${basedir}/src/main/resources/</directory>
-        <includes>
-            <include>plugin.yml</include>
-        </includes>
-      </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>${basedir}/src/main/resources/</directory>
+            </resource>
     </resources>
     <plugins>
       <plugin>
