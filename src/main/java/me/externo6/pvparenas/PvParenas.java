@@ -8,13 +8,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffectType;
 
 public class PvParenas extends JavaPlugin implements Listener{
 	public final Logger logger = Logger.getLogger("minecraft");
-	public static PvParenas plugin;
+	public static Plugin plugin;
 	
 	@Override
 	public void onDisable(){
@@ -28,6 +29,7 @@ public class PvParenas extends JavaPlugin implements Listener{
 		this.logger.info("[PvPArenas]" + " Version " + pdfFile.getVersion() + " |" + " Developed for Banxsi.com by externo6");
 		registerEvents(this, new StandardKits(), new GodKits());
 		getServer().getPluginManager().registerEvents(this, this);	
+		plugin = this;
 	}
 	
 	public static void registerEvents(org.bukkit.plugin.Plugin plugin, Listener... listeners) {
@@ -63,6 +65,9 @@ public class PvParenas extends JavaPlugin implements Listener{
     	  player.removePotionEffect(PotionEffectType.WEAKNESS);
     //	  player.sendMessage(ChatColor.GOLD + "[" + ChatColor.RED + "PvPArenas"+ ChatColor.GOLD + "]" + ChatColor.GREEN + " All potion effects (if any) removed.");
        	 }
+       	 if (player.getWorld().getName().equalsIgnoreCase("godpvp")){
+       		 clearinv(player);
+       	 }
         }
         else
         {	
@@ -73,4 +78,16 @@ public class PvParenas extends JavaPlugin implements Listener{
 	 }
         }
 	 }
+
+public static void clearinv (final Player player)
+{	
+    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() 
+	{
+		  public void run() 
+		  {
+			  player.getInventory().clear();
+			  player.sendMessage(ChatColor.GOLD + "[" + ChatColor.RED + "PvPArenas"+ ChatColor.GOLD + "]" + ChatColor.DARK_RED + " Inventory Cleared, just to be sure!");
+		  }
+	}, 5L);
+	}
 }

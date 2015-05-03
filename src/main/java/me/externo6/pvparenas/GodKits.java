@@ -13,7 +13,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -60,21 +59,12 @@ public class GodKits implements Listener{
 		}
 	}
 	@EventHandler
-	public void onWorldChange(PlayerChangedWorldEvent event){
-		Player player = event.getPlayer();
-		if(player.getWorld().getName().equalsIgnoreCase("godpvp")){
-		player.getInventory().clear();
-	//	player.getInventory().setArmorContents(null); //double protection as .clear didnt seem to want to work
-		//player.getInventory().setContents(null); //double protection as .clear didnt seem to want to work
-		}
-	}	
-	@EventHandler
 	public void onPlayerInteractOneHitKit(PlayerInteractEvent event)
 	{
 		if (event.getAction() == Action.RIGHT_CLICK_BLOCK)
 		{
 			Block block = event.getClickedBlock();
-			if ((block.getType() == Material.WALL_SIGN) || (block.getType() == Material.SIGN_POST))
+			if ((block.getType() == Material.WALL_SIGN) || (block.getType() == Material.SIGN_POST || (block.getType() == Material.SIGN)))
 			{
 				{
 					Sign sign = (Sign)block.getState();
@@ -167,7 +157,7 @@ public class GodKits implements Listener{
 		if (event.getAction() == Action.RIGHT_CLICK_BLOCK)
 		{
 			Block block = event.getClickedBlock();
-			if ((block.getType() == Material.WALL_SIGN) || (block.getType() == Material.SIGN_POST))
+			if ((block.getType() == Material.WALL_SIGN) || (block.getType() == Material.SIGN_POST || (block.getType() == Material.SIGN)))
 			{
 				Sign sign = (Sign)block.getState();
 				Player player = event.getPlayer();

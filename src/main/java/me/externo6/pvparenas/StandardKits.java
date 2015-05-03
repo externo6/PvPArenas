@@ -33,7 +33,7 @@ public class StandardKits implements Listener{
 		if (event.getAction() == Action.RIGHT_CLICK_BLOCK)
 		{
 			Block block = event.getClickedBlock();
-			if ((block.getType() == Material.WALL_SIGN) || (block.getType() == Material.SIGN_POST))
+			if ((block.getType() == Material.WALL_SIGN) || (block.getType() == Material.SIGN_POST || (block.getType() == Material.SIGN)))
 			{
 				Sign sign = (Sign)block.getState();
 				Player player = event.getPlayer();
